@@ -1,18 +1,21 @@
 import React, { Component } from 'react';
 
+import Layout from './components/Layout/Layout';
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Layout>
+          <BurgerBuilder />
+        </Layout>
       </div>
     );
   }
 }
 
+// layout is not made a self closing tag, because we have to access the children property.
+// BurgerBuilder can be a self closing tag because we dont need to manage the children of the tag.
 export default App;
