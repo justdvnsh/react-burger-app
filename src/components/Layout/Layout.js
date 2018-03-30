@@ -1,17 +1,31 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import Wrap from '../../Hoc/Wrapper';
 import classes from './Layout.css';
-import Toolbar from '../Navigation/Toolbar/Toolbar'
+import Toolbar from '../Navigation/Toolbar/Toolbar';
+import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
 
-const layout = (props) => (
-  <Wrap>
-    <Toolbar />
-    <main className={classes.Content}>
-      {props.children}
-    </main>
-  </Wrap>
-);
+class Layout extends Component {
+  state = {
+    showSideDrawer: true
+  }
+
+  sideDrawerClosedHandler = () => {
+    this.setState({showSideDrawer: false})
+  }
+
+  render () {
+    return (
+      <Wrap>
+        <Toolbar />
+        <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} />
+        <main className={classes.Content}>
+          {this.props.children}
+        </main>
+      </Wrap>
+    )
+  }
+};
 
 // we created a basic layout FUNCTIONAL Component, which we will use as the root of our app.
 // now we need a Higher order component to wrap the whole code into one tag.
@@ -29,4 +43,4 @@ const layout = (props) => (
 
 
 
-export default layout;
+export default Layout;
