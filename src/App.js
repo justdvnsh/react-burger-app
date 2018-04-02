@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 
 import Layout from './components/Layout/Layout';
 import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
-
+import Checkout from './containers/CheckOut/Checkout';
+import ContactData from './containers/CheckOut/ContactData/ContactData';
+import Orders from './containers/Orders/Orders';
+import {Route, Switch} from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Layout>
-          <BurgerBuilder />
+        <Switch>
+          <Route path="/checkout" exact component={Checkout} />
+          <Route path="/contact-data" exact component={ContactData} />
+          <Route path="/orders" component={Orders} />
+          <Route path="/" exact component={BurgerBuilder} />
+        </Switch>
         </Layout>
       </div>
     );
