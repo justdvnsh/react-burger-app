@@ -1,39 +1,43 @@
-import React , { Component } from 'react';
-import CheckoutSummary from '../../components/Orders/CheckoutSummary/CheckoutSummary';
-import {connect} from 'react-redux';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import CheckoutSummary from '../../components/Orders/CheckoutSummary/CheckoutSummary';
 
 class Checkout extends Component {
 
-  checkoutCancelHandler = () => {
-    this.props.history.goBack();
-  }
+    checkoutCancelledHandler = () => {
+        this.props.history.goBack();
+    }
 
-  checkoutContinueHandler = () => {
-    this.props.history.push('/contact-data')
-  }
+    checkoutContinuedHandler = () => {
+        this.props.history.push( '/contact-data' );
+    }
 
-  render() {
-    console.log('Checkout->',this.props)
-    return (
-      <div>
-        <CheckoutSummary
-          ingredients={this.props.ings}
-          cancelHandler = {this.checkoutCancelHandler}
-          continueHandler = {this.checkoutContinueHandler}
-          price = {this.props.price}
-          />
-
-      </div>
-    )
-  }
-};
-
-const mapStateToProps = state => {
-  return {
-    ings: state.ingredients,
-    price: state.totalPrice
-  }
+    render () {
+        let summary = <Redirect to="/" />
+        if ( this.props.ings ) {
+            const purchasedRedirect = this.props.purchased ? <Redirect to="/"/> : null;
+            summary = (
+                <div>
+                    {purchasedRedirect}
+                    <CheckoutSummary
+                        ingredients={this.props.ings}
+                        checkoutCancelled={this.checkoutCancelledHandler}
+                        checkoutContinued={this.checkoutContinuedHandler}
+                        price={this.props.price}/>
+                </div>
+            );
+        }
+        return summary;
+    }
 }
 
-export default connect(mapStateToProps)(Checkout);
+const mapStateToProps = state => {
+    return {
+        ings: state.burgerBuilder.ingredients,
+        price: state.burgerBuilder.totalPrice
+    }
+};
+
+export default connect( mapStateToProps )( Checkout );
