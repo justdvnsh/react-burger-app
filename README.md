@@ -40,9 +40,6 @@ This project is currently unlicensed.
 
 ## Screenshot
 
-![Screenshot](sc8.png)
-![Screenshot](sc9.png)
-![Screenshot](sc10.png)
 ![Screenshot](sc1.png)
 ![Screenshot](sc2.png)
 ![Screenshot](sc3.png)
@@ -50,3 +47,4 @@ This project is currently unlicensed.
 ![Screenshot](sc5.png)
 ![Screenshot](sc6.png)
 ![Screenshot](sc7.png)
+![Screenshot](sc8.png)

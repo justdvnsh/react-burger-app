@@ -10,7 +10,7 @@
   animation: load7 1.8s infinite ease-in-out;
 }
 .Loader {
-  color: #43a0bc;
+  color: salmon;
   font-size: 10px;
   margin: 80px auto;
   position: relative;
@@ -29,13 +29,11 @@
 }
 .Loader:before {
   left: -3.5em;
-  background: #fff;
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
 }
 .Loader:after {
   left: 3.5em;
-  background: #fff;
 }
 @-webkit-keyframes load7 {
   0%,

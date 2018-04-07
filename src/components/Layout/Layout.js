@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import Wrap from '../../Hoc/Wrapper';
+import Wrap from '../../hoc/Wrapper';
 import classes from './Layout.css';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
